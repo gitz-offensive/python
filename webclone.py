@@ -1,10 +1,16 @@
 import os
 import requests
+import sys
+
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 
+# Check if arguments are provided
+if len(sys.argv) < 2:
+    print("Usage: python3 webclone.py <url>")
+    sys.exit(1) #exit if no arguments given
 
-TARGET = "https://techsavanna.co.ke"
+TARGET = sys.argv[1]
 OUTPUT_FOLDER = "./clonedsite"
 
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
